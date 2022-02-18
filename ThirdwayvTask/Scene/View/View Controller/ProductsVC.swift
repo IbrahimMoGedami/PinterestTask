@@ -134,8 +134,6 @@ extension ProductsVC : ProductProtocol {
     func pushViewController(index: Int) {
         if let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailsVC") as? DetailsVC{
             vc.productData = productPresenter.product?.data[index]
-            vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            vc.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
             navigationController?.pushViewController(vc, animated: true)
         }
     }
