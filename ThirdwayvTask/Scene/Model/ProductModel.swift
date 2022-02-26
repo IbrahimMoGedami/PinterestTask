@@ -7,8 +7,9 @@
 
 import Foundation
 
+// MARK: - Product
 struct Product: Codable {
-    let data: [ProductData]
+    var data: [ProductData]
 }
 
 // MARK: - Datum

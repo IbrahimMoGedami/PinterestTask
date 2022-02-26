@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol ProductDetailsView {
+    func getProductImageHeight() -> CGFloat
+    func getProductImage()
+    
+}
+
 class DetailsVC: UIViewController {
     
     @IBOutlet weak var productImageHeight: NSLayoutConstraint!

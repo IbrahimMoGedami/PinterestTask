@@ -12,20 +12,25 @@ protocol ProductsCellView {
     func displayDescription(description: String)
     func getImageURL(imageURL: URL)
 }
-
+protocol BackBuDidTapped {
+    func backBuTapped()
+}
 class ProductsCell: UICollectionViewCell {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var productImage: ImageLoader!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productDescription: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
+    var delegate : BackBuDidTapped?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.layer.cornerRadius = 6
         containerView.layer.masksToBounds = true
         self.shadowDecorate(color:  #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))
+        backButton.isHidden = true
     }
     
     override var isSelected: Bool{
@@ -34,6 +39,7 @@ class ProductsCell: UICollectionViewCell {
                 self.containerView.transform = self.isSelected ? CGAffineTransform(scaleX: 0.9,y: 0.9) : CGAffineTransform.identity
             }
         }
+
     }
     
     //MARK:- Events
@@ -71,6 +77,10 @@ class ProductsCell: UICollectionViewCell {
                 self.transform = .identity
             }, completion: completion)
         }
+    }
+    
+    @IBAction func backBuDidTapped(sender : UIButton){
+        delegate?.backBuTapped()
     }
 }
 

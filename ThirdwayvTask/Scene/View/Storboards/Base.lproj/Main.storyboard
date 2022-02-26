@@ -111,6 +111,20 @@
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEV-NG-hQ9">
+                                                    <rect key="frame" x="5" y="10" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="88u-ML-TvY"/>
+                                                        <constraint firstAttribute="height" constant="20" id="cmA-Sj-paj"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="arrow_point">
+                                                        <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="backBuDidTappedWithSender:" destination="YyX-AH-yXc" eventType="touchUpInside" id="HoM-on-K2z"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -119,8 +133,10 @@
                                                 <constraint firstItem="XCu-i7-IOG" firstAttribute="leading" secondItem="Q5P-24-M1Y" secondAttribute="leading" id="E6p-ms-Fxy"/>
                                                 <constraint firstAttribute="bottom" secondItem="V1r-4U-ehR" secondAttribute="bottom" constant="5" id="HZp-8I-aqt"/>
                                                 <constraint firstItem="XCu-i7-IOG" firstAttribute="top" secondItem="Q5P-24-M1Y" secondAttribute="top" id="JiY-87-U89"/>
+                                                <constraint firstItem="CEV-NG-hQ9" firstAttribute="leading" secondItem="XCu-i7-IOG" secondAttribute="leading" constant="5" id="LT8-k7-zIr"/>
                                                 <constraint firstItem="CiH-Fs-Uwi" firstAttribute="top" secondItem="XCu-i7-IOG" secondAttribute="bottom" constant="5" id="S30-XY-ckv"/>
                                                 <constraint firstItem="V1r-4U-ehR" firstAttribute="leading" secondItem="Q5P-24-M1Y" secondAttribute="leading" id="Y6s-iS-qJf"/>
+                                                <constraint firstItem="CEV-NG-hQ9" firstAttribute="top" secondItem="XCu-i7-IOG" secondAttribute="top" constant="10" id="e2b-Q0-p8s"/>
                                                 <constraint firstItem="CiH-Fs-Uwi" firstAttribute="leading" secondItem="Q5P-24-M1Y" secondAttribute="leading" id="lrS-b7-6IN"/>
                                                 <constraint firstItem="V1r-4U-ehR" firstAttribute="top" secondItem="CiH-Fs-Uwi" secondAttribute="bottom" id="tmz-du-Vr7"/>
                                                 <constraint firstAttribute="trailing" secondItem="V1r-4U-ehR" secondAttribute="trailing" id="ySM-xT-vOZ"/>
@@ -142,6 +158,7 @@
                                 </constraints>
                                 <size key="customSize" width="180" height="180"/>
                                 <connections>
+                                    <outlet property="backButton" destination="CEV-NG-hQ9" id="HYV-FJ-Rdb"/>
                                     <outlet property="containerView" destination="Q5P-24-M1Y" id="EMy-OY-0FI"/>
                                     <outlet property="productDescription" destination="V1r-4U-ehR" id="NAK-cw-qGo"/>
                                     <outlet property="productImage" destination="XCu-i7-IOG" id="Zey-TV-hVA"/>
@@ -167,6 +184,7 @@
     </scenes>
     <resources>
         <image name="Unknown" width="259" height="194"/>
+        <image name="arrow_point" width="13.5" height="24"/>
         <image name="images" width="284" height="177"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

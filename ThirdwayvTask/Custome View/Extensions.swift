@@ -26,8 +26,9 @@ extension UICollectionViewCell {
 
 extension UIViewController {
     
-    func showHideAlert(title : String, message : String , handler: ((UIAlertAction) -> Void)? = nil) {
+    func showAlert(title : String, message : String , handler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
         present(alert, animated: true) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
                 guard self?.presentedViewController == alert else { return }
@@ -69,3 +70,25 @@ extension UIImageView {
     }
 }
 
+extension UIColor {
+    public static let ShimmerViewEdge = UIColor.init(
+        named: "ShimmerViewEdge",
+        in: .main,
+        compatibleWith: nil) ?? UIColor.white
+
+    public static let ShimmerViewCenter = UIColor.init(
+        named: "ShimmerViewCenter",
+        in: .main,
+        compatibleWith: nil) ?? UIColor.white
+}
+
+extension String {
+    static let dataCellReuseId = "DataCell"
+    static let shimmerCellReuseId = "ShimmerCell"
+    static let dataCellNib = "DataCellView"
+    static let shimmerCellNib = "ShimmerCellView"
+}
+
+extension Int {
+    static var numberOfShimmeringCells = 6
+}
