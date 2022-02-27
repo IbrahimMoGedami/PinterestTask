@@ -14,13 +14,13 @@ protocol ProductPresenter {
     func configure(cell: ProductsCellView, for index: Int)
     func didSelect(row: Int)
     func pushToVC(currentIndex : Int)
-    func productImageHeight(row : Int) -> Int
+    func productImageHeight(row : Int) -> Int?
 }
 
 class ProductPresenterImplementation {
     
     weak var productPro : ProductView?
-    var product : Product?
+    var product : [ProductData]?
     var coreDataManager : CoreDataManagerProtocol?
     var productInterActor = MainProductInterActor()
     
@@ -31,7 +31,7 @@ class ProductPresenterImplementation {
     // Initialize a fetched results controller
     
     lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
-        let context = coreDataManager?.managedObjectContext
+        let context = coreDataManager?.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ProductItem")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "productID", ascending: true)]
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context ?? NSManagedObjectContext(), sectionNameKeyPath: #keyPath(ProductItem.productID), cacheName: nil)
@@ -49,11 +49,9 @@ class ProductPresenterImplementation {
                 if error == nil{
                     
                     if let product = product {
-                        self.product = product
-                        for i in product.data{
-                            self.coreDataManager?.prepare(dataForSaving: [i])
-                            print(i)
-                        }
+                        self.product = product.data
+                        
+                        self.coreDataManager?.prepare(dataForSaving: product.data)
                     }
                     self.productPro?.fetchingDataSuccess()
                 }
@@ -62,7 +60,7 @@ class ProductPresenterImplementation {
                 }
             }
           case false:
-//              getDataFromCoreData()
+            localData()
             print("no internet connection")
         }
     }
@@ -70,9 +68,9 @@ class ProductPresenterImplementation {
 }
 
 extension ProductPresenterImplementation : ProductPresenter{
-    
-    func productImageHeight(row: Int) -> Int {
-        return (product?.data[row].image.height)!
+  
+    func productImageHeight(row: Int) -> Int? {
+        return (product?[row].image?.height)
     }
     
     func viewDidLoad() {
@@ -84,21 +82,21 @@ extension ProductPresenterImplementation : ProductPresenter{
     }
     
     func getProductsCount() -> Int {
-        guard let count = product?.data.count else { return 0 }
+        guard let count = product?.count else { return 0 }
         return count
     }
     
     func configure(cell: ProductsCellView, for index: Int){
-        cell.displayDescription(description: product?.data[index].productDescription ?? "")
-        cell.displayPrice(price: "\(product?.data[index].price ?? 0)")
-        if let strUrl = product?.data[index].image.url.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
+        cell.displayDescription(description: product?[index].productDescription ?? "")
+        cell.displayPrice(price: "\(product?[index].price ?? 0)")
+        if let strUrl = product?[index].image?.url?.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
            let imageUrl = URL(string: strUrl) {
             cell.getImageURL(imageURL: imageUrl)
         }
     }
     
     func pushToVC(currentIndex : Int) {
-        guard let product = self.product?.data[currentIndex] else {return}
+        guard let product = self.product?[currentIndex] else {return}
         productPro?.pushViewController(product: product)
     }
 }
@@ -107,17 +105,13 @@ extension ProductPresenterImplementation : ProductPresenter{
 //MARK: Presenter & CoreData
 extension ProductPresenterImplementation {
     
-    func getDataFromCoreData(index: IndexPath){
+    func localData(){
+        print("here ya ama")
+        guard let data = coreDataManager?.getProductsItem() else {return}
         
-        do{
-            try fetchedResultsController.performFetch()
-        }catch(let ex){
-            
-            print(ex.localizedDescription)
+        product = data
+        for i in data {
+            print(i)
         }
-        
-        self.product?.data[index.row] = fetchedResultsController.object(at: index)
-        
     }
-    
 }

@@ -41,24 +41,24 @@ class APIServices <T : TargetType> {
                         completion(.failure(errorResponse as! Error))
                         if statusCode == 404{
                             do {
-//                                Alert.showAlert(title: "Failed", message: errorResponse?.message ?? "")
+                                Alert.showAlert(title: "Failed", message: errorResponse?.message ?? "")
                             }
                             catch{
                                 print("Cannot decode data from model \(D.self)")
                             }
                         }else if statusCode == 406{
-//                            Alert.showAlert(title: "Failed", message: "Your account is deleted, if you want to restore it click here.")
+                            Alert.showAlert(title: "Failed", message: "Your account is deleted, if you want to restore it click here.")
                         }else if statusCode == 401{
-//                            Alert.showAlert(title: "Failed", message: "Wrong credentials!")
+                            Alert.showAlert(title: "Failed", message: "Wrong credentials!")
                         }else if statusCode == 403{
-//                            Alert.showAlert(title: "Failed", message: "Your account is temporarily blocked by the system, you may refer to support.")
+                            Alert.showAlert(title: "Failed", message: "Your account is temporarily blocked by the system, you may refer to support.")
                         }else if statusCode == 400{
-//                            Alert.showAlert(title: "Failed", message: "Your account is unverified!")
+                            Alert.showAlert(title: "Failed", message: "Your account is unverified!")
                         }else if statusCode == 412{
-//                            Alert.showAlert(title: "Failed", message: "Something went wrong, check your data and try again")
+                            Alert.showAlert(title: "Failed", message: "Something went wrong, check your data and try again")
                         }else{
                             
-//                            Alert.showAlert(title: "Failed", message: errorResponse?.message ?? "")
+                            Alert.showAlert(title: "Failed", message: errorResponse?.message ?? "")
                         }
                     }
                 }

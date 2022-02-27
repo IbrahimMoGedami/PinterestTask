@@ -24,20 +24,6 @@ extension UICollectionViewCell {
     
 }
 
-extension UIViewController {
-    
-    func showAlert(title : String, message : String , handler: ((UIAlertAction) -> Void)? = nil) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        present(alert, animated: true) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-                guard self?.presentedViewController == alert else { return }
-                self?.dismiss(animated: true, completion: nil)
-            }
-        }
-    }
-}
-
 var associateObjectValue: Int = 0
 extension UIImageView {
     

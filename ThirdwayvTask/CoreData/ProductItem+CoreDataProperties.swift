@@ -18,7 +18,7 @@ extension ProductItem {
 
     @NSManaged public var descrption: String?
     @NSManaged public var price: Int32
-    @NSManaged public var productID: Int32
+    @NSManaged public var productID: Int64
     @NSManaged public var image: NSObject?
     @NSManaged public var myProduct: NSSet?
 

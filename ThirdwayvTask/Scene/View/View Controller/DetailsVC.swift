@@ -32,11 +32,11 @@ class DetailsVC: UIViewController {
     }
     
     func setupData(){
-        guard let productImageUrl = URL(string: (productData?.image.url)!) else { return }
+        guard let productImageUrl = URL(string: (productData?.image?.url)!) else { return }
         DispatchQueue.main.async {
             self.productPrice.text = "\(self.productData?.price ?? 0) $"
             self.productDescription.text = self.productData?.productDescription
-            self.productImageHeight.constant = CGFloat( self.productData?.image.height ?? 0)
+            self.productImageHeight.constant = CGFloat( self.productData?.image?.height ?? 0)
             self.productImage.loadImageWithURL(productImageUrl)
         }
     }

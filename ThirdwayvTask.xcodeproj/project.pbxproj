@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030358B727CB9FB90057360D /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030358B627CB9FB90057360D /* Alert.swift */; };
 		0332180A27B973B500E282FE /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0332180927B973B500E282FE /* ImageLoader.swift */; };
 		0361579427C9280000FAE938 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0361579327C9280000FAE938 /* ShimmerView.swift */; };
 		039D697F27A6D726000F5F32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039D697E27A6D726000F5F32 /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		030358B627CB9FB90057360D /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		0332180927B973B500E282FE /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		0361579327C9280000FAE938 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		039D697B27A6D726000F5F32 /* ThirdwayvTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThirdwayvTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,9 +109,9 @@
 		039D697D27A6D726000F5F32 /* ThirdwayvTask */ = {
 			isa = PBXGroup;
 			children = (
-				03E524B827CA62E10075ADF6 /* DataStore */,
 				039D69A527A6E16B000F5F32 /* Core */,
 				03E5249827CA1B410075ADF6 /* Helper */,
+				03E524B827CA62E10075ADF6 /* DataStore */,
 				03E524A427CA32F70075ADF6 /* CoreData */,
 				03C5C9EF27C7BCEA0049DBCC /* Network */,
 				039D69A827A6E19E000F5F32 /* Custome View */,
@@ -156,6 +158,7 @@
 				039D699727A6D98C000F5F32 /* ProductsLayout.swift */,
 				039D69B127A6E882000F5F32 /* Extensions.swift */,
 				0361579327C9280000FAE938 /* ShimmerView.swift */,
+				030358B627CB9FB90057360D /* Alert.swift */,
 			);
 			path = "Custome View";
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				039D699E27A6DB27000F5F32 /* ProductModel.swift in Sources */,
 				039D699A27A6DA81000F5F32 /* ProductsCell.swift in Sources */,
 				0361579427C9280000FAE938 /* ShimmerView.swift in Sources */,
+				030358B727CB9FB90057360D /* Alert.swift in Sources */,
 				03E524AF27CA34E20075ADF6 /* CoreDataManager.swift in Sources */,
 				03E524A327CA25D30075ADF6 /* CorDataModel.xcdatamodeld in Sources */,
 				03C5C9EC27C7A29D0049DBCC /* Error.swift in Sources */,

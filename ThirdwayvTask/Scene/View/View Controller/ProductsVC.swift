@@ -145,7 +145,7 @@ extension ProductsVC: ProductsLayoutDelegate {
     func collectionView(
         _ collectionView: UICollectionView,
         heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-            return CGFloat(productPresenter.productImageHeight(row: indexPath.row))
+            return CGFloat(productPresenter.productImageHeight(row: indexPath.row) ?? 0)
         }
 }
 
@@ -164,7 +164,8 @@ extension ProductsVC : ProductView {
     }
     
     func fireCustomError(msg: String) {
-        showAlert(title: "Failed", message: msg)
+
+        Alert.showAlert(title: "Failed", message: msg)
     }
     
 }
