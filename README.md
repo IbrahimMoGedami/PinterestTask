@@ -1,7 +1,8 @@
 
 
 ## ThirdwayvTask
-![Uploading Simulator Screen Recording - iPhone 11 - 2022-02-25 at 19.07.43.gif…]()
+![Simulator Screen Recording - iPhone 11 - 2022-02-25 at 19 07 43](https://user-images.githubusercontent.com/62378554/155887452-3abd614b-cd6f-4702-9cce-639946e16ec2.gif)
+
 
 
 A Thirdwayv is an ios app that display a UICollectionView cells in custom layout size dynamically.
